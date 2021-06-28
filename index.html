@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="zxx" class="has-navbar-fixed-top">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JJ Tax</title>
+    <link rel="stylesheet" href="static/style.css">
+
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        html {
+            scroll-behavior: smooth !important;
+        }
+
+        @media screen and (min-width: 1024px) {
+            .navbar-dropdown a.navbar-item {
+                padding-right: 0rem;
+            }
+        }
+
+        @media screen and (min-width: 769px) and (max-width: 1024px) {
+            .pad {
+                padding-right: 1rem;
+                padding-left: 1rem;
+            }
+
+            .head-input {
+                width: 15rem;
+            }
+        }
+
+        @media screen and (min-width: 1025px) {
+            .pad {
+                padding-right: 5rem;
+                padding-left: 5rem;
+            }
+
+            .head-input {
+                width: 15rem;
+            }
+        }
+
+        @media screen and (min-width: 769px) {
+            .navbar {
+                padding: 0rem 5rem;
+            }
+
+            .subtitle {
+                max-width: 725px;
+                margin: auto;
+            }
+
+            .hero-body {
+                padding-top: 5rem;
+            }
+
+            .pad-content {
+                padding-top: 5rem;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .pad-mob {
+                padding: 0 1.5rem;
+            }
+
+            .unify {
+                padding: 0rem 0rem !important;
+            }
+
+            .browser-top {
+                padding-top: 0.75rem !important;
+            }
+
+            .pblock {
+                border-radius: 0px !important;
+            }
+        }
+
+        .pblock {
+            background-color: #5271ff;
+            border-radius: 4px;
+        }
+
+        .subtitle {
+            line-height: 1.75rem !important;
+        }
+
+        .headcta:hover {
+            color: lightgray !important;
+        }
+
+        .shadow {
+            padding: 0 .25rem;
+            background-color: rgb(82 113 255 / 15%);
+        }
+
+        .unify {
+            max-width: 1536px;
+            padding: 0rem 5rem;
+            flex-grow: 1;
+            margin: 0 auto;
+            position: relative;
+            width: auto;
+        }
+
+        .inline-svg svg {
+            vertical-align: middle;
+            width: 18px;
+        }
+
+        .inline-img img {
+            vertical-align: middle;
+            height: 2.25rem;
+            border-radius: 100px;
+        }
+
+        .inline-img a:hover {
+            opacity: 0.75;
+        }
+
+        .border {
+            background: #e7e9ee;
+            width: 100%;
+            height: 5px;
+            border-radius: 4px;
+            display: block;
+            float: left;
+        }
+
+        .footer-link {
+            color: #4a4a4a;
+            cursor: pointer;
+        }
+
+        .footer-link:hover {
+            color: #5a58d5;
+            border-bottom: 1px solid #5a58d5;
+
+        }
+
+        .browser .topbar {
+            background: rgba(0, 0, 0, .9);
+            padding: 0 0 0 11px;
+            border-radius: 8px 8px 0 0;
+            height: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .browser .topbar span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, .9);
+            border-radius: 10px;
+            margin: 0 5px 0 0;
+        }
+
+        .browser a {
+            display: block;
+            max-width: 900px;
+            overflow: hidden;
+            height: 25rem;
+            background: rgba(0, 0, 0, .9);
+            position: relative;
+        }
+
+        .browser a:hover img {
+            opacity: 0.95;
+        }
+
+        .browser a span {
+            position: absolute;
+            text-align: center;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 15;
+            border-radius: 2px;
+            display: inline-block;
+            background: rgba(0, 0, 0, .9);
+            color: rgba(255, 255, 255, .9);
+            padding: 10px 10px;
+            width: 75%;
+            text-transform: uppercase;
+            font-size: .85em;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: bottom .2s ease-in-out;
+        }
+
+        .browser a img {
+            border-left: 2px solid rgba(0, 0, 0, .9);
+            border-right: 2px solid rgba(0, 0, 0, .9);
+            box-sizing: border-box;
+        }
+
+        .browser a .fade {
+            background: linear-gradient(rgb(28 44 56 / 40%), rgb(229 229 229 / 35%) 95%);
+            height: 10rem;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: block;
+            z-index: 10;
+        }
+
+        .grecaptcha-badge {
+            position: relative;
+            z-index: 10000;
+        }
+
+        .hello {
+            background-color: #5a58d5;
+            padding: 0.25rem;
+            display: inline-flex;
+            transform: rotate(-1deg);
+            color: white;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body class="unify" style="background-color: #fcfcfc;">
+    <div class="container">
+        <nav class="unify navbar is-fixed-top" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="">
+                    <img src="https://via.placeholder.com/224x56?text=JJ+Fintax+Logo" alt="JJ Fintax Logo">
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                    data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <a class="navbar-item">
+                            Services
+                        </a>
+
+                        <a class="navbar-item">
+                            Pricing
+                        </a>
+
+                        <a class="navbar-item">
+                            Contact
+                        </a>
+
+                        <a class="navbar-item button is-link">
+                            Actionable CTA
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!--Hero section-->
+        <div class="columns">
+            <div class="column" style="display:flex; justify-content: center; align-items: center;">
+                <section class="hero" style="width: 100%;">
+                    <div class="hero-body">
+                        <div>
+                            <h1 class="is-size-1 is-size-3-mobile" style="font-family: 'Inter', sans-serif;">
+                                <strong>Get your queries <span style="color:#5271ff">resolved by tax experts</span> in
+                                    realtime<span style="color:#5271ff">.</span></strong>
+                            </h1>
+                            <hr style="max-width: 72px;opacity: 0.25; background-color: #4a4a4a;">
+                            <p class="subtitle">
+                                We understand the importance of getting queries answered in real-time and that's what we
+                                pledge to excel. Download our app now to get all your tax-related queries answered by
+                                our chat experts.
+                            </p>
+                            <div class="buttons">
+                                <a class="button is-primary is-hidden-mobile" style="width: 15rem;" href="" rel="noreferrer"
+                                    target="_blank">
+                                    Chat with an expert
+                                </a>
+                                <a class="button is-primary is-hidden-tablet" style="width: 10rem;" href="" rel="noreferrer"
+                                    target="_blank">
+                                    Download our app
+                                </a>
+                                <span class="is-size-7" style="padding-bottom: 0.35rem;">
+                                    12000+ Happy Users<br>No payment required
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="column is-hidden-mobile">
+                <div class="has-text-centered" style="padding: 3rem 0.75rem 3rem 3rem">
+                    <img src="./static/images/demo.png" alt="" style="max-width: 100%;">
+                </div>
+            </div>
+        </div>
+
+        <!--Testimonial-->
+        <div style="padding: 1.5rem">
+            <h2 class="is-size-3 is-size-4-mobile has-text-centered" style="font-family: 'Inter', sans-serif;">
+                <strong>Loved by <span style="color: #5271ff;">Plenty</span></strong>
+            </h2>
+            <hr style="max-width: 72px;opacity: 0.25; background-color: #4a4a4a;margin: auto;">
+            <div class="columns" style="padding-top: 2.5rem;">
+                <div class="column">
+                    <p style="font-size: 1.2rem;">
+                        How JJ Tax helps them in <span class="shadow">their business and we</span> need to highlight the
+                        important points. Lorem ipsum dolor sit amet, cons adipiscing elit, <span class="shadow">sed do
+                            eiusmod tempor</span> incididunt ut labore et dolore magna aliqua.
+                    </p>
+                    <br>
+                    <div class="inline-img">
+                        <a href="https://twitter.com/DivDev_" rel="nofollow noreferrer" target="_blank">
+                            <img src="https://www.landingletter.com/images/dimitri.jpg" alt="Dimitri">
+                            <span style="color:#4a4a4a;">&nbsp;Username,&nbsp;</span><span style="color: darkgray;">
+                                Designation
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="column">
+                    <p style="font-size: 1.2rem;">
+                        How JJ Tax helps them in their business and we need to highlight <span class="shadow">the
+                            important points.</span> Lorem ipsum dolor sit amet, cons adipiscing elit, sed do eiusmod
+                        tempor incididunt <span class="shadow">ut labore et dolore</span> magna aliqua.
+                    </p>
+                    <br>
+                    <div class="inline-img">
+                        <a href="https://twitter.com/DivDev_" rel="nofollow noreferrer" target="_blank">
+                            <img src="https://www.landingletter.com/images/dimitri.jpg" alt="Dimitri">
+                            <span style="color:#4a4a4a;">&nbsp;Username,&nbsp;</span><span style="color: darkgray;">
+                                Designation
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="column is-hidden-mobile">
+                    <p style="font-size: 1.2rem;">
+                        How JJ Tax helps them in <span class="shadow">their business and we</span> need to highlight the
+                        important points. Lorem ipsum dolor sit amet, cons adipiscing elit, <span class="shadow">sed do
+                            eiusmod tempor</span> incididunt ut labore et dolore magna aliqua.
+                    </p>
+                    <br>
+                    <div class="inline-img">
+                        <a href="" rel="nofollow noreferrer" target="_blank">
+                            <img src="https://www.landingletter.com/images/dimitri.jpg" alt="Dimitri">
+                            <span style="color:#4a4a4a;">&nbsp;Username,&nbsp;</span><span style="color: darkgray;">
+                                Designation
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Services-->
+        <div style="padding: 1.5rem">
+            <h2 class="is-size-3 is-size-4-mobile has-text-centered" style="font-family: 'Inter', sans-serif;">
+                <strong>Services we <span style="color: #5271ff;">Offer</span></strong>
+            </h2>
+            <hr style="max-width: 72px;opacity: 0.25; background-color: #4a4a4a;margin: auto;">
+            <div class="columns" style="padding-top: 2.5rem;">
+                <div class="column">
+                    <div style="border-radius: 4px; background-color: #5271ff;">
+                        <div class="has-text-centered">
+                            <img src="./static/images/sample.png" alt="" style="max-width: 250px;">
+                        </div>
+                        <h2 class="is-size-4 is-size-5-mobile has-text-centered"
+                            style="font-family: 'Inter', sans-serif;padding-bottom: 1rem;">
+                            <strong style="color: #fcfcfc;">Income Tax Return Filings</strong>
+                        </h2>
+                    </div>
+                </div>
+                <div class="column">
+                    <div style="border-radius: 4px; background-color: #5271ff;">
+                        <div class="has-text-centered">
+                            <img src="./static/images/sample.png" alt="" style="max-width: 250px;">
+                        </div>
+                        <h2 class="is-size-4 is-size-5-mobile has-text-centered"
+                            style="font-family: 'Inter', sans-serif;padding-bottom: 1rem;">
+                            <strong style="color: #fcfcfc;">GST Compliances</strong>
+                        </h2>
+                    </div>
+                </div>
+                <div class="column">
+                    <div style="border-radius: 4px; background-color: #5271ff;">
+                        <div class="has-text-centered">
+                            <img src="./static/images/sample.png" alt="" style="max-width: 250px;">
+                        </div>
+                        <h2 class="is-size-4 is-size-5-mobile has-text-centered"
+                            style="font-family: 'Inter', sans-serif;padding-bottom: 1rem;">
+                            <strong style="color: #fcfcfc;">TDS Return Filing</strong>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <div class="columns" style="padding-top: 1.5rem;">
+                <div class="column">
+                    <div style="border-radius: 4px; background-color: #5271ff;">
+                        <div class="has-text-centered">
+                            <img src="./static/images/sample.png" alt="" style="max-width: 250px;">
+                        </div>
+                        <h2 class="is-size-4 is-size-5-mobile has-text-centered"
+                            style="font-family: 'Inter', sans-serif;padding-bottom: 1rem;">
+                            <strong style="color: #fcfcfc;">Will Drafting & Execution</strong>
+                        </h2>
+                    </div>
+                </div>
+                <div class="column">
+                    <div style="border-radius: 4px; background-color: #5271ff;">
+                        <div class="has-text-centered">
+                            <img src="./static/images/sample.png" alt="" style="max-width: 250px;">
+                        </div>
+                        <h2 class="is-size-4 is-size-5-mobile has-text-centered"
+                            style="font-family: 'Inter', sans-serif;padding-bottom: 1rem;">
+                            <strong style="color: #fcfcfc;">Accounting Services</strong>
+                        </h2>
+                    </div>
+                </div>
+                <div class="column">
+                    <div style="border-radius: 4px; background-color: #5271ff;">
+                        <div class="has-text-centered">
+                            <img src="./static/images/sample.png" alt="" style="max-width: 250px;">
+                        </div>
+                        <h2 class="is-size-4 is-size-5-mobile has-text-centered"
+                            style="font-family: 'Inter', sans-serif;padding-bottom: 1rem;">
+                            <strong style="color: #fcfcfc;">Other Services</strong>
+                        </h2>
+                    </div>
+                </div>
+            </div>
+            <p class="has-text-centered">
+                <strong style="color: darkgray;">
+                    For any other custom requirements,
+                    <br>
+                    please raise a <span style="color: #5271ff;">callback request.</span>
+                </strong>
+            </p>
+        </div>
+
+        <!--Customers-->
+        <div style="padding: 1.5rem">
+            <h2 class="is-size-3 is-size-4-mobile has-text-centered" style="font-family: 'Inter', sans-serif;">
+                <strong>1000+ <span style="color: #5271ff;">happy customers</span></strong>
+            </h2>
+            <hr style="max-width: 72px;opacity: 0.25; background-color: #4a4a4a;margin: auto;">
+            <img src="static/images/users.png" style="padding-top: 2.5rem;" alt="">
+        </div>
+
+        <!--Customers-->
+        <div style="padding: 1.5rem">
+            <h2 class="is-size-3 is-size-4-mobile has-text-centered" style="font-family: 'Inter', sans-serif;">
+                <strong>We are <span style="color: #5271ff;">different</span></strong>
+            </h2>
+            <hr style="max-width: 72px;opacity: 0.25; background-color: #4a4a4a;margin: auto;">
+            <div class="columns" style="padding-top: 1.5rem;">
+                <div class="column">
+                    <div style="border-radius: 4px; background-color: #5271ff;">
+                        <div style="padding:1rem">
+                            <img src="./static/images/chat.png" style="max-height: 50px;" alt="">
+                            <h3 class="is-size-4">
+                                <strong style="color: #fcfcfc;">Chat based</strong>
+                            </h3>
+                            <p class="is-size-6" style="color: #fcfcfc;">
+                                Mails and calls are a thing from the past. The future is chat-based and we want to bring
+                                that experience to your fingertips for all your tax-related concerns.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div style="border-radius: 4px; background-color: #5271ff;">
+                        <div style="padding:1rem">
+                            <img src="./static/images/secure.png" style="max-height: 50px;" alt="">
+                            <h3 class="is-size-4">
+                                <strong style="color: #fcfcfc;">Secure</strong>
+                            </h3>
+                            <p class="is-size-6" style="color: #fcfcfc;">
+                                Some random dolor sit amet, cons adipiscing elit, sed do eiusmod tempor incididunt.
+                                Some random dolor sit amet, cons adipiscing elit, sed do eiusmod tempor incididunt.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div style="border-radius: 4px; background-color: #5271ff;">
+                        <div style="padding:1rem">
+                            <img src="./static/images/affordable.png" style="max-height: 50px;" alt="">
+                            <h3 class="is-size-4">
+                                <strong style="color: #fcfcfc;">Affordable</strong>
+                            </h3>
+                            <p class="is-size-6" style="color: #fcfcfc;">
+                                Some random dolor sit amet, cons adipiscing elit, sed do eiusmod tempor incididunt.
+                                Some random dolor sit amet, cons adipiscing elit, sed do eiusmod tempor incididunt.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Team-->
+        <div style="padding: 1.5rem">
+            <h2 class="is-size-3 is-size-4-mobile has-text-centered" style="font-family: 'Inter', sans-serif;">
+                <strong>Led by <span style="color: #5271ff;">Industry Veterans</span></strong>
+            </h2>
+            <hr style="max-width: 72px;opacity: 0.25; background-color: #4a4a4a;margin: auto;">
+            <div class="columns" style="padding-top: 2.5rem;">
+                <div class="column">
+                    <div class="has-text-centered">
+                        <img src="./static/images/jambu.png" alt="">
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="has-text-centered">
+                        <img src="./static/images/leesha.png" alt="">
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="has-text-centered">
+                        <img src="./static/images/rashi.png" alt="">
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="has-text-centered">
+                        <img src="./static/images/komal.png" alt="">
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="has-text-centered">
+                        <img src="./static/images/varta.png" alt="">
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="has-text-centered">
+                        <img src="./static/images/jasleen.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Final CTA-->
+        <div class="pblock">
+            <div class="has-text-white" style="padding: 2.5rem;">
+                <div class="columns">
+                    <div class="column pad">
+                        <h2 class="is-size-3 is-size-4-mobile has-text-white" style="font-family: 'Inter', sans-serif;">
+                            <strong style="color: #fcfcfc;">Download our app now to chat with our experts for
+                                free.</strong>
+                        </h2>
+                        <hr style="max-width: 72px;opacity: 0.25; background-color: #fcfcfc;">
+                        <p class="is-size-6" style="color: #fcfcfc;">
+                            Loved by 1200+ individuals and businesses across India.
+                        </p>
+                        <img src="./static/images/appstore.png" alt="">
+                    </div>
+                    <div class="column pad">
+                        <div style="width: 100%;">
+                            <p style="font-size: 1.2rem;" class="has-text-white">
+                                How JJ Tax helps them in their business and we need to highlight the
+                                important points. Lorem ipsum dolor sitamet, cons adipiscing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Cons adipiscing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </p>
+                            <br>
+                            <div class="inline-img">
+                                <a href="" rel="nofollow noreferrer" target="_blank">
+                                    <img src="https://www.landingletter.com/images/dimitri.jpg" alt="Dimitri">
+                                    <span style="color:#fcfcfc;">&nbsp;Username,&nbsp;</span><span
+                                        style="color: lightgray;">
+                                        Designation
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Footer-->
+        <div style="padding: 10rem;">
+
+        </div>
+
+    </div>
+
+    <!--Start of Tawk.to Script-->
+    <script>
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/60d44e2c7f4b000ac0394ecc/1f8ul2o81';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+</body>
+
+</html>
