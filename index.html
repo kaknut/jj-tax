@@ -55,7 +55,7 @@
             }
 
             .hero-body {
-                padding-top: 5rem;
+                padding-top: 1.5rem;
             }
 
             .pad-content {
@@ -266,11 +266,11 @@
         </nav>
 
         <!--Hero section-->
-        <div class="columns">
-            <div class="column" style="display:flex; justify-content: center; align-items: center;">
-                <section class="hero" style="width: 100%;">
-                    <div class="hero-body">
-                        <div>
+        <div class="hero">
+            <div class="hero-body">
+                <div class="columns">
+                    <div class="column" style="display:flex; justify-content: center; align-items: center;">
+                        <div style="width: 100%;">
                             <h1 class="is-size-1 is-size-3-mobile" style="font-family: 'Inter', sans-serif;">
                                 <strong>Get your queries <span style="color:#5271ff">resolved by tax experts</span> in
                                     realtime<span style="color:#5271ff">.</span></strong>
@@ -296,11 +296,11 @@
                             </div>
                         </div>
                     </div>
-                </section>
-            </div>
-            <div class="column is-hidden-mobile">
-                <div class="has-text-centered" style="padding: 3rem 0.75rem 3rem 3rem">
-                    <img src="./static/images/demo.png" alt="" style="max-width: 100%;">
+                    <div class="column">
+                        <div class="has-text-centered" style="padding: 3rem 0.75rem 3rem 3rem">
+                            <img src="./static/images/demo.png" alt="" style="max-width: 100%;">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -595,21 +595,49 @@
 
     </div>
 
-    <!--Start of Tawk.to Script-->
-    <script>
-        var Tawk_API = Tawk_API || {},
-            Tawk_LoadStart = new Date();
-        (function () {
-            var s1 = document.createElement("script"),
-                s0 = document.getElementsByTagName("script")[0];
-            s1.async = true;
-            s1.src = 'https://embed.tawk.to/60d44e2c7f4b000ac0394ecc/1f8ul2o81';
-            s1.charset = 'UTF-8';
-            s1.setAttribute('crossorigin', '*');
-            s0.parentNode.insertBefore(s1, s0);
-        })();
+<!--Start of Tawk.to Script-->
+<script>
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/60d44e2c7f4b000ac0394ecc/1f8ul2o81';
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
     </script>
     <!--End of Tawk.to Script-->
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+// Get all "navbar-burger" elements
+const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+// Check if there are any navbar burgers
+if ($navbarBurgers.length > 0) {
+
+  // Add a click event on each of them
+  $navbarBurgers.forEach( el => {
+    el.addEventListener('click', () => {
+
+      // Get the target from the "data-target" attribute
+      const target = el.dataset.target;
+      const $target = document.getElementById(target);
+
+      // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+      el.classList.toggle('is-active');
+      $target.classList.toggle('is-active');
+
+    });
+  });
+}
+
+});
+
+    </script>
 </body>
 
 </html>
