@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="zxx" class="has-navbar-fixed-top">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JJ Tax</title>
+    <link rel="stylesheet" href="./static/style.css">
+
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.pubik.in/static/basicLightbox.min.css">
+    <script src="https://www.pubik.in/static/basicLightbox.min.js"></script>
+
+    <style>
+        html {
+            scroll-behavior: smooth !important;
+        }
+
+        @media screen and (min-width: 1024px) {
+            .navbar-dropdown a.navbar-item {
+                padding-right: 0rem;
+            }
+        }
+
+        @media screen and (min-width: 769px) and (max-width: 1024px) {
+            .pad {
+                padding-right: 1rem;
+                padding-left: 1rem;
+            }
+
+            .head-input {
+                width: 15rem;
+            }
+        }
+
+        @media screen and (min-width: 1025px) {
+            .pad {
+                padding-right: 5rem;
+                padding-left: 5rem;
+            }
+
+            .head-input {
+                width: 15rem;
+            }
+        }
+
+        @media screen and (min-width: 769px) {
+            .navbar {
+                padding: 0rem 5rem;
+            }
+
+            .subtitle {
+                max-width: 725px;
+                margin: auto;
+            }
+
+            .hero-body {
+                padding-top: 1.5rem;
+            }
+
+            .pad-content {
+                padding-top: 5rem;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .pad-mob {
+                padding: 0 1.5rem;
+            }
+
+            .unify {
+                padding: 0rem 0rem !important;
+            }
+
+            .browser-top {
+                padding-top: 0.75rem !important;
+            }
+
+            .pblock {
+                border-radius: 0px !important;
+            }
+        }
+
+        .pblock {
+            background-color: #5271ff;
+            border-radius: 4px;
+        }
+
+        .subtitle {
+            line-height: 1.75rem !important;
+        }
+
+        .headcta:hover {
+            color: lightgray !important;
+        }
+
+        .shadow {
+            padding: 0 .25rem;
+            background-color: rgb(82 113 255 / 15%);
+        }
+
+        .unify {
+            max-width: 1536px;
+            padding: 0rem 5rem;
+            flex-grow: 1;
+            margin: 0 auto;
+            position: relative;
+            width: auto;
+        }
+
+        .inline-svg svg {
+            vertical-align: middle;
+            width: 18px;
+        }
+
+        .inline-img img {
+            vertical-align: middle;
+            height: 2.25rem;
+            border-radius: 100px;
+        }
+
+        .inline-img a:hover {
+            opacity: 0.75;
+        }
+
+        .border {
+            background: #e7e9ee;
+            width: 100%;
+            height: 5px;
+            border-radius: 4px;
+            display: block;
+            float: left;
+        }
+
+        .footer-link {
+            color: #4a4a4a;
+            cursor: pointer;
+        }
+
+        .footer-link:hover {
+            color: #5271ff;
+            border-bottom: 1px solid #5271ff;
+
+        }
+
+        .browser .topbar {
+            background: rgba(0, 0, 0, .9);
+            padding: 0 0 0 11px;
+            border-radius: 8px 8px 0 0;
+            height: 30px;
+            display: flex;
+            align-items: center;
+        }
+
+        .browser .topbar span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, .9);
+            border-radius: 10px;
+            margin: 0 5px 0 0;
+        }
+
+        .browser a {
+            display: block;
+            max-width: 900px;
+            overflow: hidden;
+            height: 25rem;
+            background: rgba(0, 0, 0, .9);
+            position: relative;
+        }
+
+        .browser a:hover img {
+            opacity: 0.95;
+        }
+
+        .browser a span {
+            position: absolute;
+            text-align: center;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 15;
+            border-radius: 2px;
+            display: inline-block;
+            background: rgba(0, 0, 0, .9);
+            color: rgba(255, 255, 255, .9);
+            padding: 10px 10px;
+            width: 75%;
+            text-transform: uppercase;
+            font-size: .85em;
+            font-weight: 500;
+            letter-spacing: 1px;
+            transition: bottom .2s ease-in-out;
+        }
+
+        .browser a img {
+            border-left: 2px solid rgba(0, 0, 0, .9);
+            border-right: 2px solid rgba(0, 0, 0, .9);
+            box-sizing: border-box;
+        }
+
+        .browser a .fade {
+            background: linear-gradient(rgb(28 44 56 / 40%), rgb(229 229 229 / 35%) 95%);
+            height: 10rem;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: block;
+            z-index: 10;
+        }
+
+        .grecaptcha-badge {
+            position: relative;
+            z-index: 10000;
+        }
+
+        .hello {
+            background-color: #5271ff;
+            padding: 0.25rem;
+            display: inline-flex;
+            transform: rotate(-1deg);
+            color: white;
+            font-weight: 500;
+        }
+    </style>
+</head>
+
+<body class="unify" style="background-color: #fcfcfc;">
+    <div class="container">
+        <nav class="unify navbar is-fixed-top" aria-label="main navigation">
+            <div class="navbar-brand">
+                <a class="navbar-item" href="">
+                    <img src="https://via.placeholder.com/224x56?text=JJ+Fintax+Logo" alt="JJ Fintax Logo">
+                </a>
+
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                    data-target="navbarBasicExample">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                </a>
+            </div>
+
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <a class="navbar-item">
+                            Services
+                        </a>
+
+                        <a class="navbar-item">
+                            Pricing
+                        </a>
+
+                        <a class="navbar-item">
+                            Contact
+                        </a>
+
+                        <a class="navbar-item button is-link is-hidden-mobile" onclick="chat()">
+                            Chat with an expert
+                        </a>
+
+                        <a class="navbar-item button is-link is-hidden-tablet"
+                            href="https://jjtax.onelink.me/LXJ6/a8575660" target="_blank">
+                            Download our app
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!--Hero section-->
+        <div class="hero">
+            <div class="hero-body">
+                <h1 class="is-size-1 is-size-3-mobile has-text-centered"
+                    style="font-family: 'Inter', sans-serif;padding-top: 5rem;">
+                    <strong>Flexible pricing that suits everyone.</strong>
+                </h1>
+            </div>
+        </div>
+
+        <!--Pricing Table-->
+        <div style="padding: 1.5rem;padding-bottom: 5rem;">
+            <div class="columns">
+                <div class="column">
+                    <div style="background-color: #5271ff;border-radius: 4px;padding: 2.5rem 1.9rem;min-height: 250px;">
+                        <div>
+                            <h2 class="is-size-5 has-text-centered" style="color: #fcfcfc;">Silver</h2>
+                            <p class="is-size-2 has-text-centered"><strong style="color: #fcfcfc;">₹499 <span
+                                        class="is-size-5">p.a.</span></strong></p>
+                            <p class="has-text-white is-size-6 has-text-centered"
+                                style="padding-top: 1rem;padding-bottom: 1rem;">
+                                for individuals/HUF with income ≤ ₹25 Lakhs
+                            </p>
+                            <a href="" class="button is-white is-fullwidth is-hidden-tablet"
+                                style="color: #5271ff;">Download our app</a>
+                            <a href="" class="button is-white is-fullwidth is-hidden-mobile" style="color: #5271ff;">Buy
+                                now</a>
+                        </div>
+                    </div>
+                    <div style="padding-top: 1rem;">
+                        <p class="is-size-5" style="font-family: 'Inter', sans-serif;">
+                            <span style="color: #5271ff;">Silver</span> plan includes:
+                        </p>
+                        <p>
+                            All these great features.
+                        </p>
+                        <hr style="background-color: #5271ff;margin: 1rem 0;opacity: 0.75;">
+                        <div class="inline-svg" style="font-size: 1.15rem;">
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">Income Tax</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg class="crossSVG" viewBox="0 0 17 17" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    style="height: 0.75rem;">
+                                    <g stroke="none" stroke-width="1" fill="#FF5F56" fill-rule="evenodd">
+                                        <g transform="translate(-908.000000, -130.000000)" fill="#FF5F56"
+                                            fill-rule="nonzero">
+                                            <g transform="translate(907.000000, 132.000000)">
+                                                <path
+                                                    d="M10.7483549,6.66674232 L17.0401562,0.374941027 C17.431059,-0.0156282754 17.431059,-0.649344479 17.0401562,-1.03991378 C16.6492534,-1.43081662 16.0162042,-1.43081662 15.6253014,-1.03991378 L9.3335001,5.25188752 L3.04136527,-1.03991378 C2.65046243,-1.43081662 2.0174133,-1.43081662 1.62651046,-1.03991378 C1.23560762,-0.649344479 1.23560762,-0.0156282754 1.62651046,0.374941027 L7.91864529,6.66674232 L1.62651046,12.9585436 C1.23560762,13.3491129 1.23560762,13.9828291 1.62651046,14.3733984 C1.82196188,14.5685163 2.07811664,14.666242 2.33393787,14.666242 C2.58975909,14.666242 2.84591385,14.5685163 3.04136527,14.3730649 L9.3335001,8.0812636 L15.6253014,14.3730649 C15.8207528,14.5685163 16.0769076,14.666242 16.3327288,14.666242 C16.58855,14.666242 16.8447048,14.5685163 17.0401562,14.3730649 C17.431059,13.9824956 17.431059,13.3487794 17.0401562,12.9582101 L10.7483549,6.66674232 Z">
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg> <strong style="color: #4a4a4a;">TDS</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg class="crossSVG" viewBox="0 0 17 17" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    style="height: 0.75rem;">
+                                    <g stroke="none" stroke-width="1" fill="#FF5F56" fill-rule="evenodd">
+                                        <g transform="translate(-908.000000, -130.000000)" fill="#FF5F56"
+                                            fill-rule="nonzero">
+                                            <g transform="translate(907.000000, 132.000000)">
+                                                <path
+                                                    d="M10.7483549,6.66674232 L17.0401562,0.374941027 C17.431059,-0.0156282754 17.431059,-0.649344479 17.0401562,-1.03991378 C16.6492534,-1.43081662 16.0162042,-1.43081662 15.6253014,-1.03991378 L9.3335001,5.25188752 L3.04136527,-1.03991378 C2.65046243,-1.43081662 2.0174133,-1.43081662 1.62651046,-1.03991378 C1.23560762,-0.649344479 1.23560762,-0.0156282754 1.62651046,0.374941027 L7.91864529,6.66674232 L1.62651046,12.9585436 C1.23560762,13.3491129 1.23560762,13.9828291 1.62651046,14.3733984 C1.82196188,14.5685163 2.07811664,14.666242 2.33393787,14.666242 C2.58975909,14.666242 2.84591385,14.5685163 3.04136527,14.3730649 L9.3335001,8.0812636 L15.6253014,14.3730649 C15.8207528,14.5685163 16.0769076,14.666242 16.3327288,14.666242 C16.58855,14.666242 16.8447048,14.5685163 17.0401562,14.3730649 C17.431059,13.9824956 17.431059,13.3487794 17.0401562,12.9582101 L10.7483549,6.66674232 Z">
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg> <strong style="color: #4a4a4a;">Advance Tax</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg class="crossSVG" viewBox="0 0 17 17" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    style="height: 0.75rem;">
+                                    <g stroke="none" stroke-width="1" fill="#FF5F56" fill-rule="evenodd">
+                                        <g transform="translate(-908.000000, -130.000000)" fill="#FF5F56"
+                                            fill-rule="nonzero">
+                                            <g transform="translate(907.000000, 132.000000)">
+                                                <path
+                                                    d="M10.7483549,6.66674232 L17.0401562,0.374941027 C17.431059,-0.0156282754 17.431059,-0.649344479 17.0401562,-1.03991378 C16.6492534,-1.43081662 16.0162042,-1.43081662 15.6253014,-1.03991378 L9.3335001,5.25188752 L3.04136527,-1.03991378 C2.65046243,-1.43081662 2.0174133,-1.43081662 1.62651046,-1.03991378 C1.23560762,-0.649344479 1.23560762,-0.0156282754 1.62651046,0.374941027 L7.91864529,6.66674232 L1.62651046,12.9585436 C1.23560762,13.3491129 1.23560762,13.9828291 1.62651046,14.3733984 C1.82196188,14.5685163 2.07811664,14.666242 2.33393787,14.666242 C2.58975909,14.666242 2.84591385,14.5685163 3.04136527,14.3730649 L9.3335001,8.0812636 L15.6253014,14.3730649 C15.8207528,14.5685163 16.0769076,14.666242 16.3327288,14.666242 C16.58855,14.666242 16.8447048,14.5685163 17.0401562,14.3730649 C17.431059,13.9824956 17.431059,13.3487794 17.0401562,12.9582101 L10.7483549,6.66674232 Z">
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg> <strong style="color: #4a4a4a;">GST</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">Wills</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg class="crossSVG" viewBox="0 0 17 17" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    style="height: 0.75rem;">
+                                    <g stroke="none" stroke-width="1" fill="#FF5F56" fill-rule="evenodd">
+                                        <g transform="translate(-908.000000, -130.000000)" fill="#FF5F56"
+                                            fill-rule="nonzero">
+                                            <g transform="translate(907.000000, 132.000000)">
+                                                <path
+                                                    d="M10.7483549,6.66674232 L17.0401562,0.374941027 C17.431059,-0.0156282754 17.431059,-0.649344479 17.0401562,-1.03991378 C16.6492534,-1.43081662 16.0162042,-1.43081662 15.6253014,-1.03991378 L9.3335001,5.25188752 L3.04136527,-1.03991378 C2.65046243,-1.43081662 2.0174133,-1.43081662 1.62651046,-1.03991378 C1.23560762,-0.649344479 1.23560762,-0.0156282754 1.62651046,0.374941027 L7.91864529,6.66674232 L1.62651046,12.9585436 C1.23560762,13.3491129 1.23560762,13.9828291 1.62651046,14.3733984 C1.82196188,14.5685163 2.07811664,14.666242 2.33393787,14.666242 C2.58975909,14.666242 2.84591385,14.5685163 3.04136527,14.3730649 L9.3335001,8.0812636 L15.6253014,14.3730649 C15.8207528,14.5685163 16.0769076,14.666242 16.3327288,14.666242 C16.58855,14.666242 16.8447048,14.5685163 17.0401562,14.3730649 C17.431059,13.9824956 17.431059,13.3487794 17.0401562,12.9582101 L10.7483549,6.66674232 Z">
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg> <strong style="color: #4a4a4a;">Accounting</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg class="crossSVG" viewBox="0 0 17 17" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    style="height: 0.75rem;">
+                                    <g stroke="none" stroke-width="1" fill="#FF5F56" fill-rule="evenodd">
+                                        <g transform="translate(-908.000000, -130.000000)" fill="#FF5F56"
+                                            fill-rule="nonzero">
+                                            <g transform="translate(907.000000, 132.000000)">
+                                                <path
+                                                    d="M10.7483549,6.66674232 L17.0401562,0.374941027 C17.431059,-0.0156282754 17.431059,-0.649344479 17.0401562,-1.03991378 C16.6492534,-1.43081662 16.0162042,-1.43081662 15.6253014,-1.03991378 L9.3335001,5.25188752 L3.04136527,-1.03991378 C2.65046243,-1.43081662 2.0174133,-1.43081662 1.62651046,-1.03991378 C1.23560762,-0.649344479 1.23560762,-0.0156282754 1.62651046,0.374941027 L7.91864529,6.66674232 L1.62651046,12.9585436 C1.23560762,13.3491129 1.23560762,13.9828291 1.62651046,14.3733984 C1.82196188,14.5685163 2.07811664,14.666242 2.33393787,14.666242 C2.58975909,14.666242 2.84591385,14.5685163 3.04136527,14.3730649 L9.3335001,8.0812636 L15.6253014,14.3730649 C15.8207528,14.5685163 16.0769076,14.666242 16.3327288,14.666242 C16.58855,14.666242 16.8447048,14.5685163 17.0401562,14.3730649 C17.431059,13.9824956 17.431059,13.3487794 17.0401562,12.9582101 L10.7483549,6.66674232 Z">
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg> <strong style="color: #4a4a4a;">NRI Services</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">Downloads</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div style="background-color: #5271ff;border-radius: 4px;padding: 2.5rem 1.9rem;min-height: 250px;">
+                        <div>
+                            <h2 class="is-size-5 has-text-centered" style="color: #fcfcfc;">Gold</h2>
+                            <p class="is-size-2 has-text-centered"><strong style="color: #fcfcfc;">₹2499 <span
+                                        class="is-size-5">p.a.</span></strong></p>
+                            <p class="has-text-white is-size-6 has-text-centered"
+                                style="padding-top: 1rem;padding-bottom:1rem;">
+                                for individuals/HUF with income > ₹25 Lakhs
+                            </p>
+                            <a href="" class="button is-white is-fullwidth is-hidden-tablet"
+                                style="color: #5271ff;">Download our app</a>
+                            <a href="" class="button is-white is-fullwidth is-hidden-mobile" style="color: #5271ff;">Buy
+                                now</a>
+                        </div>
+                    </div>
+                    <div style="padding-top: 1rem;">
+                        <p class="is-size-5" style="font-family: 'Inter', sans-serif;">
+                            <span style="color: #5271ff;">Gold</span> plan includes:
+                        </p>
+                        <p>
+                            All these great features.
+                        </p>
+                        <hr style="background-color: #5271ff;margin: 1rem 0;opacity: 0.75;">
+                        <div class="inline-svg" style="font-size: 1.15rem;">
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">Income Tax</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">TDS</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">Advance Tax</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg class="crossSVG" viewBox="0 0 17 17" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    style="height: 0.75rem;">
+                                    <g stroke="none" stroke-width="1" fill="#FF5F56" fill-rule="evenodd">
+                                        <g transform="translate(-908.000000, -130.000000)" fill="#FF5F56"
+                                            fill-rule="nonzero">
+                                            <g transform="translate(907.000000, 132.000000)">
+                                                <path
+                                                    d="M10.7483549,6.66674232 L17.0401562,0.374941027 C17.431059,-0.0156282754 17.431059,-0.649344479 17.0401562,-1.03991378 C16.6492534,-1.43081662 16.0162042,-1.43081662 15.6253014,-1.03991378 L9.3335001,5.25188752 L3.04136527,-1.03991378 C2.65046243,-1.43081662 2.0174133,-1.43081662 1.62651046,-1.03991378 C1.23560762,-0.649344479 1.23560762,-0.0156282754 1.62651046,0.374941027 L7.91864529,6.66674232 L1.62651046,12.9585436 C1.23560762,13.3491129 1.23560762,13.9828291 1.62651046,14.3733984 C1.82196188,14.5685163 2.07811664,14.666242 2.33393787,14.666242 C2.58975909,14.666242 2.84591385,14.5685163 3.04136527,14.3730649 L9.3335001,8.0812636 L15.6253014,14.3730649 C15.8207528,14.5685163 16.0769076,14.666242 16.3327288,14.666242 C16.58855,14.666242 16.8447048,14.5685163 17.0401562,14.3730649 C17.431059,13.9824956 17.431059,13.3487794 17.0401562,12.9582101 L10.7483549,6.66674232 Z">
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg> <strong style="color: #4a4a4a;">GST</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">Wills</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">Accounting</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg class="crossSVG" viewBox="0 0 17 17" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    style="height: 0.75rem;">
+                                    <g stroke="none" stroke-width="1" fill="#FF5F56" fill-rule="evenodd">
+                                        <g transform="translate(-908.000000, -130.000000)" fill="#FF5F56"
+                                            fill-rule="nonzero">
+                                            <g transform="translate(907.000000, 132.000000)">
+                                                <path
+                                                    d="M10.7483549,6.66674232 L17.0401562,0.374941027 C17.431059,-0.0156282754 17.431059,-0.649344479 17.0401562,-1.03991378 C16.6492534,-1.43081662 16.0162042,-1.43081662 15.6253014,-1.03991378 L9.3335001,5.25188752 L3.04136527,-1.03991378 C2.65046243,-1.43081662 2.0174133,-1.43081662 1.62651046,-1.03991378 C1.23560762,-0.649344479 1.23560762,-0.0156282754 1.62651046,0.374941027 L7.91864529,6.66674232 L1.62651046,12.9585436 C1.23560762,13.3491129 1.23560762,13.9828291 1.62651046,14.3733984 C1.82196188,14.5685163 2.07811664,14.666242 2.33393787,14.666242 C2.58975909,14.666242 2.84591385,14.5685163 3.04136527,14.3730649 L9.3335001,8.0812636 L15.6253014,14.3730649 C15.8207528,14.5685163 16.0769076,14.666242 16.3327288,14.666242 C16.58855,14.666242 16.8447048,14.5685163 17.0401562,14.3730649 C17.431059,13.9824956 17.431059,13.3487794 17.0401562,12.9582101 L10.7483549,6.66674232 Z">
+                                                </path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg> <strong style="color: #4a4a4a;">NRI Services</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">Downloads</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div style="background-color: #5271ff;border-radius: 4px;padding: 2.5rem 1.9rem;min-height: 250px;">
+                        <div>
+                            <h2 class="is-size-5 has-text-centered" style="color: #fcfcfc;">Platinum</h2>
+                            <p class="is-size-2 has-text-centered"><strong style="color: #fcfcfc;">₹3999 <span
+                                        class="is-size-5">p.a.</span></strong></p>
+                            <p class="has-text-white is-size-6 has-text-centered"
+                                style="padding-top: 1rem;padding-bottom: 1rem;">
+                                for GST registered individuals
+                            </p>
+                            <a href="" class="button is-white is-fullwidth is-hidden-tablet"
+                                style="color: #5271ff;">Download our app</a>
+                            <a href="" class="button is-white is-fullwidth is-hidden-mobile" style="color: #5271ff;">Buy
+                                now</a>
+                        </div>
+                    </div>
+                    <div style="padding-top: 1rem;">
+                        <p class="is-size-5" style="font-family: 'Inter', sans-serif;">
+                            <span style="color: #5271ff;">Platinum</span> plan includes:
+                        </p>
+                        <p>
+                            All these great features.
+                        </p>
+                        <hr style="background-color: #5271ff;margin: 1rem 0;opacity: 0.75;">
+                        <div class="inline-svg" style="font-size: 1.15rem;">
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">Income Tax</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">TDS</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">Advance Tax</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">GST</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">Wills</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">Accounting</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg class="crossSVG" viewBox="0 0 17 17" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    style="height: 0.75rem;">
+                                    <g id="lander" stroke="none" stroke-width="1" fill="#FF5F56" fill-rule="evenodd">
+                                        <g id="with-content" transform="translate(-908.000000, -130.000000)"
+                                            fill="#FF5F56" fill-rule="nonzero">
+                                            <g id="close" transform="translate(907.000000, 132.000000)">
+                                                <path
+                                                    d="M10.7483549,6.66674232 L17.0401562,0.374941027 C17.431059,-0.0156282754 17.431059,-0.649344479 17.0401562,-1.03991378 C16.6492534,-1.43081662 16.0162042,-1.43081662 15.6253014,-1.03991378 L9.3335001,5.25188752 L3.04136527,-1.03991378 C2.65046243,-1.43081662 2.0174133,-1.43081662 1.62651046,-1.03991378 C1.23560762,-0.649344479 1.23560762,-0.0156282754 1.62651046,0.374941027 L7.91864529,6.66674232 L1.62651046,12.9585436 C1.23560762,13.3491129 1.23560762,13.9828291 1.62651046,14.3733984 C1.82196188,14.5685163 2.07811664,14.666242 2.33393787,14.666242 C2.58975909,14.666242 2.84591385,14.5685163 3.04136527,14.3730649 L9.3335001,8.0812636 L15.6253014,14.3730649 C15.8207528,14.5685163 16.0769076,14.666242 16.3327288,14.666242 C16.58855,14.666242 16.8447048,14.5685163 17.0401562,14.3730649 C17.431059,13.9824956 17.431059,13.3487794 17.0401562,12.9582101 L10.7483549,6.66674232 Z"
+                                                    id="Path"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg> <strong style="color: #4a4a4a;">NRI Services</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">Downloads</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div style="background-color: #5271ff;border-radius: 4px;padding: 2.5rem 1.9rem;min-height: 250px;">
+                        <div>
+                            <h2 class="is-size-5 has-text-centered" style="color: #fcfcfc;">Dollar</h2>
+                            <p class="is-size-2 has-text-centered"><strong style="color: #fcfcfc;">₹7999 <span
+                                        class="is-size-5">p.a.</span></strong></p>
+                            <p class="has-text-white is-size-6 has-text-centered"
+                                style="padding-top: 1rem;padding-bottom: 1rem;">
+                                for Non Residential Indians
+                            </p>
+                            <a href="" class="button is-white is-fullwidth is-hidden-tablet"
+                                style="color: #5271ff;">Download our app</a>
+                            <a href="" class="button is-white is-fullwidth is-hidden-mobile" style="color: #5271ff;">Buy
+                                now</a>
+                        </div>
+                    </div>
+                    <div style="padding-top: 1rem;">
+                        <p class="is-size-5" style="font-family: 'Inter', sans-serif;">
+                            <span style="color: #5271ff;">Dollar</span> plan includes:
+                        </p>
+                        <p>
+                            All these great features.
+                        </p>
+                        <hr style="background-color: #5271ff;margin: 1rem 0;opacity: 0.75;">
+                        <div class="inline-svg" style="font-size: 1.15rem;">
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">Income Tax</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">TDS</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">Advance Tax</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">GST</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">Wills</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">Accounting</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">NRI Services</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">Downloads</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <div style="background-color: #5271ff;border-radius: 4px;padding: 2.5rem 1.9rem;min-height: 250px;">
+                        <div>
+                            <h2 class="is-size-5 has-text-centered" style="color: #fcfcfc;">Diamond</h2>
+                            <p class="is-size-2 has-text-centered"><strong style="color: #fcfcfc;">₹11999 <span
+                                        class="is-size-5">p.a.</span></strong></p>
+                            <p class="has-text-white is-size-6 has-text-centered"
+                                style="padding-top: 1rem;padding-bottom: 1rem;">
+                                for registered firms and corporates
+                            </p>
+                            <a href="" class="button is-white is-fullwidth is-hidden-tablet"
+                                style="color: #5271ff;">Download our app</a>
+                            <a href="" class="button is-white is-fullwidth is-hidden-mobile" style="color: #5271ff;">Buy
+                                now</a>
+                        </div>
+                    </div>
+                    <div style="padding-top: 1rem;">
+                        <p class="is-size-5" style="font-family: 'Inter', sans-serif;">
+                            <span style="color: #5271ff;">Diamond</span> plan includes:
+                        </p>
+                        <p>
+                            All these great features.
+                        </p>
+                        <hr style="background-color: #5271ff;margin: 1rem 0;opacity: 0.75;">
+                        <div class="inline-svg" style="font-size: 1.15rem;">
+                            <p>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">Income Tax</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">TDS</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">Advance Tax</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">GST</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">Wills</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">Accounting</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">NRI Services</strong>
+                            </p>
+                            <p style="padding-top: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="#A4E2AC" stroke-width="5" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-check">
+                                    <polyline points="20 6 9 17 4 12"></polyline>
+                                </svg> <strong style="color: #4a4a4a;">Downloads</strong>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!--Final CTA-->
+        <div class="pblock">
+            <div class="has-text-white" style="padding: 2.5rem;">
+                <div class="columns">
+                    <div class="column pad">
+                        <h2 class="is-size-3 is-size-4-mobile has-text-white" style="font-family: 'Inter', sans-serif;">
+                            <strong style="color: #fcfcfc;">Download our app now to chat with our experts for
+                                free.</strong>
+                        </h2>
+                        <hr style="max-width: 72px;opacity: 0.25; background-color: #fcfcfc;">
+                        <p class="is-size-6" style="color: #fcfcfc;">
+                            Loved by 1200+ individuals and businesses across India.
+                        </p>
+                        <img src="./static/images/appstore.png" alt="">
+                    </div>
+                    <div class="column pad is-hidden-mobile">
+                        <div style="width: 100%;">
+                            <p style="font-size: 1.2rem;" class="has-text-white">
+                                How JJ Tax helps them in their business and we need to highlight the
+                                important points. Lorem ipsum dolor sitamet, cons adipiscing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua. Cons adipiscing elit, sed do
+                                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            </p>
+                            <br>
+                            <div class="inline-img">
+                                <a href="" rel="nofollow noreferrer" target="_blank">
+                                    <img src="https://www.landingletter.com/images/dimitri.jpg" alt="Dimitri">
+                                    <span style="color:#fcfcfc;">&nbsp;Username,&nbsp;</span><span
+                                        style="color: lightgray;">
+                                        Designation
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+    <!--Footer-->
+    <div style="padding-top: 2.5rem;"></div>
+    <footer>
+        <div class="pad-mob">
+            <div>
+                <div class="border"></div>
+                <br>
+                <div class="columns is-mobile" style="padding-top: 0.25rem;padding-bottom: 3rem; font-size: 0.875rem;">
+                    <div class="column">
+                        <div>
+                            © <span id="copy">2021</span> JJ Fintax,
+                            <a href="" target="_blank" rel="noreferrer" class="footer-link"
+                                title="Privacy Policy ">Privacy Policy</a>
+                        </div>
+                    </div>
+                    <div class="column has-text-right" style="font-size: 0.875rem;">
+                        <a class="footer-link" href="" rel="noreferrer">Sample Link 1</a>
+                        &nbsp;
+                        <a class="footer-link"
+                            href="javascript:location='mailto:\u0068\u0069\u0040\u006c\u0061\u006e\u0064\u0069\u006e\u0067\u006c\u0065\u0074\u0074\u0065\u0072\u002e\u0063\u006f\u006d';void 0">Link
+                            2</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!--Start of Tawk.to Script-->
+    <script>
+        var Tawk_API = Tawk_API || {},
+            Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"),
+                s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/60d44e2c7f4b000ac0394ecc/1f8ul2o81';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Get all "navbar-burger" elements
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+            // Check if there are any navbar burgers
+            if ($navbarBurgers.length > 0) {
+
+                // Add a click event on each of them
+                $navbarBurgers.forEach(el => {
+                    el.addEventListener('click', () => {
+
+                        // Get the target from the "data-target" attribute
+                        const target = el.dataset.target;
+                        const $target = document.getElementById(target);
+
+                        // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                        el.classList.toggle('is-active');
+                        $target.classList.toggle('is-active');
+
+                    });
+                });
+            }
+
+        });
+    </script>
+
+    <script>
+        const popup = basicLightbox.create(` 
+        <div style="padding-left: 0.5rem;padding-right: 0.5rem;">
+                <div class="popup" style="background-color: #fcfcfc; border-radius: 4px;padding: 1rem;max-width: 450px;">
+                  <span style="float: right !important;cursor: pointer;" onclick="popup.close()">
+                    <svg class="crossSVG" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="height: 0.75rem;">
+                      <g id="lander" stroke="none" stroke-width="1" fill="#18253f" fill-rule="evenodd">
+                          <g id="with-content" transform="translate(-908.000000, -130.000000)" fill="#18253f" fill-rule="nonzero">
+                              <g id="close" transform="translate(907.000000, 132.000000)">
+                                  <path d="M10.7483549,6.66674232 L17.0401562,0.374941027 C17.431059,-0.0156282754 17.431059,-0.649344479 17.0401562,-1.03991378 C16.6492534,-1.43081662 16.0162042,-1.43081662 15.6253014,-1.03991378 L9.3335001,5.25188752 L3.04136527,-1.03991378 C2.65046243,-1.43081662 2.0174133,-1.43081662 1.62651046,-1.03991378 C1.23560762,-0.649344479 1.23560762,-0.0156282754 1.62651046,0.374941027 L7.91864529,6.66674232 L1.62651046,12.9585436 C1.23560762,13.3491129 1.23560762,13.9828291 1.62651046,14.3733984 C1.82196188,14.5685163 2.07811664,14.666242 2.33393787,14.666242 C2.58975909,14.666242 2.84591385,14.5685163 3.04136527,14.3730649 L9.3335001,8.0812636 L15.6253014,14.3730649 C15.8207528,14.5685163 16.0769076,14.666242 16.3327288,14.666242 C16.58855,14.666242 16.8447048,14.5685163 17.0401562,14.3730649 C17.431059,13.9824956 17.431059,13.3487794 17.0401562,12.9582101 L10.7483549,6.66674232 Z" id="Path"></path>
+                              </g>
+                          </g>
+                      </g>
+                  </svg>
+                  </span>
+                  <section class="has-text-centered" style="padding: 1rem 1rem;">
+                    <h2 class="is-size-5" style="font-family: 'Inter', sans-serif; padding: 0.75rem;text-align: center;">
+                      <strong class="hello" style="font-weight: 700; ">Let's arrange a callback
+                      </strong>
+                    </h2>
+                    <p style="padding: 0.75rem;color: #18253f;">
+                        Provide us with your mobile number and we'll arrange a callback soon.
+                    </p>
+                  </section>
+                  <div id="hero-cta" class="has-text-centered">
+                    <!--Genral Form-->
+                    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted)  {window.location='https://www.pubik.in/success.html';}"></iframe>
+                    <form action="https://api.web3forms.com/submit" method="POST" onsubmit="disbtn()">
+                        <!--From Name-->
+                        <input type="hidden" name="from_name" value="PuBik">
+                        <!--API Key-->
+                        <input type="hidden" name="apikey" value="33edfd32-c304-4629-a4d6-142c05f37206">
+                        <!--Subject-->
+                        <input type="hidden" name="subject" value="Callback request">
+                        <!--Carbon Copy-->
+                        <input type="hidden" name="ccemail" value="akg2304@gmail.com;" />
+                        <!--Botcheck-->
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                        <!--Redirect-->
+                        <input type="hidden" name="redirect" value="https://www.pubik.in/static/success.html">
+        
+                        <div class="control">
+                            <input name="Username" class="input" type="text" aria-label="username" placeholder="Your name here"
+                                required="required" title="Enter valid mobile number">
+                        </div>
+                        <div class="control" style="padding-top: 0.75rem;">
+                            <input name="Mobile_Number" class="input" type="number" aria-label="mobile_number" placeholder="Mobile Number"
+                                required="required" min="10" title="Enter valid mobile number">
+                        </div>
+                        <div class="control" style="padding-top: 0.75rem;">
+                            <button type="submit" id="submit_btn" class="button is-primary is-fullwidth has-text-weight-medium">
+                                Request Callback
+                            </button>
+                        </div>
+                    </form>
+                    <p class="is-size-7" style="text-align: center; padding-top: 0.25rem; padding-bottom:1.25rem; color: #fcfcfc;">
+                      We love privacy and sanity.
+                    </p>
+                  </div>
+                </div>
+              </div>
+        `);
+
+
+        function chat() {
+            Tawk_API.maximize();
+        }
+    </script>
+
+</body>
+
+</html>
